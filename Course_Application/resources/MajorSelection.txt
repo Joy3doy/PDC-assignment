@@ -1,4 +1,0 @@
-1: Software Development 
-2: Data Analysis
-3: Digital Service
-4: Networks and Cyber Security 
