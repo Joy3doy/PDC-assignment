@@ -11,6 +11,7 @@ import static course_application.ReadFile.readFile;
 /**
  *
  * @author Denise
+ * testing 2
  */
 
 public class Course_Application {
