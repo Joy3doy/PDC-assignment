@@ -7,6 +7,7 @@ package course_application;
 /**
  *
  * @author Denise
+ * testing
  */
 
 import java.io.BufferedReader;
