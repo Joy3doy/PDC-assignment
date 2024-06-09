@@ -9,6 +9,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+//123
+
 public class CourseApplicationGUI {
 
     private JFrame frame;
