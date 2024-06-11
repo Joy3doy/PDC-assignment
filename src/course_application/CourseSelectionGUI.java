@@ -32,9 +32,10 @@ public class CourseSelectionGUI {
 
     private static final Map<String, Integer> COURSE_SELECTION_CLASSES = new HashMap<>();
 
+    
     static {
-        COURSE_SELECTION_CLASSES.put("Software Development", 4);
-        COURSE_SELECTION_CLASSES.put("Data Analysis", 18);
+        COURSE_SELECTION_CLASSES.put("Software Development", 3);
+        COURSE_SELECTION_CLASSES.put("Data Analysis", 17);
         COURSE_SELECTION_CLASSES.put("Digital Service", 32);
         COURSE_SELECTION_CLASSES.put("Network and Cyber Security", 46);
     }
@@ -79,6 +80,8 @@ public class CourseSelectionGUI {
         displayArea.setLineWrap(true);
         displayArea.setWrapStyleWord(true);
         JScrollPane displayScrollPane = new JScrollPane(displayArea);
+        displayScrollPane.setPreferredSize(new Dimension(500, 300));
+        
         selectedCoursesPanel.add(displayScrollPane, BorderLayout.CENTER);
 
         JPanel submitPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
@@ -111,9 +114,11 @@ public class CourseSelectionGUI {
         });
         submitPanel.add(btnSelectCourse);
 
-        frame.setSize(800, 600);
+        frame.setSize(1000, 400);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+        
+        
     }
 
     private void loadCourses() {
@@ -126,35 +131,30 @@ public class CourseSelectionGUI {
         updateSelectedCourseCount();
     }
 
-    private List<String> getCoursesForMajor(String selectedMajor) {
-        List<String> courses = new ArrayList<>();
-        String filePath = "Course_Application//resources//CourseList.txt";
-        int lineOffset = COURSE_SELECTION_CLASSES.get(selectedMajor);
+       private List<String> getCoursesForMajor(String selectedMajor) {
+    List<String> courses = new ArrayList<>();
+    String filePath = "Course_Application/resources/CourseList.txt";
 
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            String line;
-            int currentLine = 0;
-            boolean readCourses = false;
+    try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+        String line;
+        boolean readCourses = false;
 
-            while ((line = reader.readLine()) != null) {
-                if (line.contains(selectedMajor)) {
-                    readCourses = true;
-                } else if (line.startsWith("=") && readCourses) {
-                    break;
-                }
-                if (readCourses && !line.startsWith("=")) {
-                    currentLine++;
-                    if (currentLine >= lineOffset && currentLine < lineOffset + 10) {
-                        courses.add(line);
-                    }
-                }
+        while ((line = reader.readLine()) != null) {
+            if (line.contains(selectedMajor)) {
+                readCourses = true;
+            } else if (line.startsWith("=") && readCourses) {
+                break;
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+            if (readCourses && !line.startsWith("=")) {
+                courses.add(line);
+            }
         }
-
-        return courses;
+    } catch (IOException e) {
+        e.printStackTrace();
     }
+
+    return courses;
+}
 
     private void selectCourse() {
         List<String> selectedValuesList = courseList.getSelectedValuesList();
