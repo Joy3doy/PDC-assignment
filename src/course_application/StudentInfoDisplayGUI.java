@@ -80,27 +80,4 @@ public class StudentInfoDisplayGUI {
         frame.setVisible(visible);
     }
 
-    public static void main(String[] args) {
-        EventQueue.invokeLater(() -> {
-            try {
-                String firstName = "John";
-                String lastName = "Doe";
-                String major = "Software Development";
-                String[] selectedCourses = {
-                        "Course 1",
-                        "Course 2",
-                        "Course 3",
-                        "Course 4",
-                        "Course 5",
-                        "Course 6",
-                        "Course 7",
-                        "Course 8"
-                }; // Example selected courses
-                StudentInfoDisplayGUI window = new StudentInfoDisplayGUI(firstName, lastName, major, selectedCourses);
-                window.setVisible(true);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
-    }
 }

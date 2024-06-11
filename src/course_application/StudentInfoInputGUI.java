@@ -6,28 +6,33 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class StudentInfoInputGUI {
-
+    
+    //declare variables
     private JFrame frame;
     private JTextField firstNameField;
     private JTextField lastNameField;
     private JTextField studentIDField;
     String url = "jdbc:derby://localhost:1527/StudentInformation;create=true";
 
+    //constructor for initializing GUI
     public StudentInfoInputGUI() {
         initialize();
     }
 
+    //main method to launch
     public static void main(String[] args) {
         StudentInfoInputGUI studentInfoInputGUI = new StudentInfoInputGUI();
         studentInfoInputGUI.setVisible(true);
     }
 
+    //initialize the contents of the frame
     private void initialize() {
         frame = new JFrame("Student Information Input");
-        frame.setBounds(100, 100, 400, 300);
+        frame.setBounds(100, 100, 400, 300); //window size
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setLayout(new GridLayout(4, 2));
 
+        //add labels and text fields
         JLabel lblFirstName = new JLabel("First Name:");
         frame.getContentPane().add(lblFirstName);
 
@@ -49,6 +54,7 @@ public class StudentInfoInputGUI {
         frame.getContentPane().add(studentIDField);
         studentIDField.setColumns(10);
 
+        //add button for confiming information
         JButton btnNext = new JButton("Confirm Information");
         btnNext.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -58,10 +64,12 @@ public class StudentInfoInputGUI {
         frame.getContentPane().add(btnNext);
     }
 
+    //make frame visible
     public void setVisible(boolean visible) {
         frame.setVisible(visible);
     }
 
+    
     private void confirmInformation() {
     // Get student information
     String firstName = firstNameField.getText().trim();
@@ -104,11 +112,11 @@ public class StudentInfoInputGUI {
     Student.saveStudentInfoToDatabase(studentID, firstName, lastName, "");
 }
 
-
-private String capitalize(String str) {
-    if (str.isEmpty()) {
-        return str;
+    //capitize the first letter of first name and last name
+    private String capitalize(String str) {
+        if (str.isEmpty()) {
+            return str;
+        }
+        return Character.toUpperCase(str.charAt(0)) + str.substring(1).toLowerCase();
     }
-    return Character.toUpperCase(str.charAt(0)) + str.substring(1).toLowerCase();
-}
 }

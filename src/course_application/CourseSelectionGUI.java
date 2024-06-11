@@ -14,6 +14,7 @@ import java.util.Set;
 
 public class CourseSelectionGUI {
 
+    //Declare class variables
     private JFrame frame;
     private JList<String> courseList;
     private JButton btnSubmit;
@@ -32,7 +33,7 @@ public class CourseSelectionGUI {
 
     private static final Map<String, Integer> COURSE_SELECTION_CLASSES = new HashMap<>();
 
-    
+    //Static initializer block to populate course selection classes using haashmap
     static {
         COURSE_SELECTION_CLASSES.put("Software Development", 3);
         COURSE_SELECTION_CLASSES.put("Data Analysis", 17);
@@ -40,6 +41,7 @@ public class CourseSelectionGUI {
         COURSE_SELECTION_CLASSES.put("Network and Cyber Security", 46);
     }
 
+    //Constructor for initializing the GUI with student information and selected major
     public CourseSelectionGUI(String firstName, String lastName, String studentID, String selectedMajor) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -49,6 +51,7 @@ public class CourseSelectionGUI {
         initialize();
     }
 
+    //Initialize the contents of the frame
     private void initialize() {
     frame = new JFrame("Course Selection - " + selectedMajor);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -58,7 +61,7 @@ public class CourseSelectionGUI {
     frame.getContentPane().add(mainPanel);
 
     // Greeting label
-    JLabel greetingLabel = new JLabel("Hello, " + firstName + " " + lastName + ". \nTo load available classes click load courses, to pick classes click the classes click select course. When finished, click submit.");
+    JLabel greetingLabel = new JLabel(firstName + "'s major: " + selectedMajor + ", to load available classes click load courses, to pick classes click the classes click select course. When finished, click submit.");
     greetingLabel.setHorizontalAlignment(SwingConstants.CENTER);
     greetingLabel.setFont(new Font("Arial", Font.PLAIN, 14)); 
     mainPanel.add(greetingLabel, BorderLayout.NORTH);
@@ -137,14 +140,12 @@ public class CourseSelectionGUI {
     });
     submitPanel.add(backButton);
 
-    frame.setSize(1000, 400);
+    frame.setSize(1200, 400); //size
     frame.setLocationRelativeTo(null);
     frame.setVisible(true);
 }
 
-
-
-
+    //load available courses for the selected major
     private void loadCourses() {
         listModel.clear();
         selectedCourses.clear();
@@ -155,22 +156,22 @@ public class CourseSelectionGUI {
         updateSelectedCourseCount();
     }
 
-       private List<String> getCoursesForMajor(String selectedMajor) {
+    //read course list from file fore the selected major
+    private List<String> getCoursesForMajor(String selectedMajor) {
     List<String> courses = new ArrayList<>();
     String filePath = "Course_Application/resources/CourseList.txt";
 
     try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
         String line;
-        boolean readCourses = false;
+        boolean startReading = false;
 
         while ((line = reader.readLine()) != null) {
-            if (line.contains(selectedMajor)) {
-                readCourses = true;
-            } else if (line.startsWith("=") && readCourses) {
-                break;
-            }
-            if (readCourses && !line.startsWith("=")) {
+            if (startReading && !line.startsWith("=")) {
                 courses.add(line);
+            } else if (line.contains(selectedMajor)) {
+                startReading = true;
+            } else if (startReading && line.startsWith("=")) {
+                break; 
             }
         }
     } catch (IOException e) {
@@ -180,6 +181,7 @@ public class CourseSelectionGUI {
     return courses;
 }
 
+    //select courses from list
     private void selectCourse() {
         List<String> selectedValuesList = courseList.getSelectedValuesList();
         if (selectedValuesList.size() + selectedCourses.size() > MAX_COURSES) {
@@ -196,10 +198,12 @@ public class CourseSelectionGUI {
         }
     }
 
+    //update selected course count label
     private void updateSelectedCourseCount() {
         selectedCourseCountLabel.setText("Selected Courses: " + selectedCourses.size() + "/" + MAX_COURSES);
     }
 
+    //display selected courses in the text area
     private void displaySelectedCourses() {
         StringBuilder sb = new StringBuilder();
         sb.append("Selected Courses:\n");
@@ -209,6 +213,7 @@ public class CourseSelectionGUI {
         displayArea.setText(sb.toString());
     }
 
+    //submit button click event
     private void handleSubmitButton() {
     if (selectedCourses.size() != MAX_COURSES) {
         displayArea.setText("Please select exactly " + MAX_COURSES + " courses.");
@@ -228,16 +233,4 @@ public class CourseSelectionGUI {
         frame.setVisible(visible);
     }
 
-
-
-    public static void main(String[] args) {
-        EventQueue.invokeLater(() -> {
-            try {
-                CourseSelectionGUI window = new CourseSelectionGUI("John", "Doe", "12345678", "Software Development");
-                window.setVisible(true);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
-    }
 }
