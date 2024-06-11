@@ -17,13 +17,13 @@ public class CourseSelectionGUI {
     private JFrame frame;
     private JList<String> courseList;
     private JButton btnSubmit;
+    private JButton btnSelectCourse;
+    private JButton btnLoadCourses;
     private DefaultListModel<String> listModel;
     private JLabel selectedCourseCountLabel;
     private Set<String> selectedCourses;
     private JTextArea displayArea;
     private static final int MAX_COURSES = 8;
-    String url = "jdbc:derby://localhost:1527/StudentInformation;create=true";
-
 
     private String firstName;
     private String lastName;
@@ -50,39 +50,39 @@ public class CourseSelectionGUI {
 
     private void initialize() {
         frame = new JFrame("Course Selection - " + selectedMajor);
-        frame.setBounds(100, 100, 800, 800);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.getContentPane().setLayout(new GridLayout(9, 1));
 
-        JLabel lblInstruction = new JLabel("Please select your courses (up to 8):");
-        lblInstruction.setHorizontalAlignment(SwingConstants.CENTER);
-        frame.getContentPane().add(lblInstruction);
+        JPanel mainPanel = new JPanel();
+        mainPanel.setLayout(new BorderLayout());
+        frame.getContentPane().add(mainPanel);
+
+        JPanel centerPanel = new JPanel(new BorderLayout());
+        mainPanel.add(centerPanel, BorderLayout.CENTER);
 
         listModel = new DefaultListModel<>();
         courseList = new JList<>(listModel);
         courseList.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-        frame.getContentPane().add(new JScrollPane(courseList));
+        centerPanel.add(new JScrollPane(courseList), BorderLayout.CENTER);
+
+        JPanel rightPanel = new JPanel(new BorderLayout());
+        mainPanel.add(rightPanel, BorderLayout.EAST);
+
+        JPanel selectedCoursesPanel = new JPanel(new BorderLayout());
+        selectedCoursesPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        rightPanel.add(selectedCoursesPanel, BorderLayout.CENTER);
 
         selectedCourseCountLabel = new JLabel("Selected Courses: 0/" + MAX_COURSES);
-        frame.getContentPane().add(selectedCourseCountLabel);
+        selectedCoursesPanel.add(selectedCourseCountLabel, BorderLayout.NORTH);
 
-        JButton btnLoadCourses = new JButton("Load Courses");
-        btnLoadCourses.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                loadCourses();
-            }
-        });
-        frame.getContentPane().add(btnLoadCourses);
+        displayArea = new JTextArea();
+        displayArea.setEditable(false);
+        displayArea.setLineWrap(true);
+        displayArea.setWrapStyleWord(true);
+        JScrollPane displayScrollPane = new JScrollPane(displayArea);
+        selectedCoursesPanel.add(displayScrollPane, BorderLayout.CENTER);
 
-        JButton btnSelectCourse = new JButton("Select Course");
-        btnSelectCourse.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                selectCourse();
-            }
-        });
-        frame.getContentPane().add(btnSelectCourse);
+        JPanel submitPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        rightPanel.add(submitPanel, BorderLayout.SOUTH);
 
         btnSubmit = new JButton("Submit");
         btnSubmit.addActionListener(new ActionListener() {
@@ -91,11 +91,29 @@ public class CourseSelectionGUI {
                 handleSubmitButton();
             }
         });
-        frame.getContentPane().add(btnSubmit);
+        submitPanel.add(btnSubmit);
 
-        displayArea = new JTextArea();
-        displayArea.setEditable(false);
-        frame.getContentPane().add(new JScrollPane(displayArea));
+        btnLoadCourses = new JButton("Load Courses");
+        btnLoadCourses.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                loadCourses();
+            }
+        });
+        submitPanel.add(btnLoadCourses);
+
+        btnSelectCourse = new JButton("Select Course");
+        btnSelectCourse.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                selectCourse();
+            }
+        });
+        submitPanel.add(btnSelectCourse);
+
+        frame.setSize(800, 600);
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
     }
 
     private void loadCourses() {

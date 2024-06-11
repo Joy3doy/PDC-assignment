@@ -63,6 +63,7 @@ public class StudentInfoInputGUI {
     }
 
     private void confirmInformation() {
+    // Get student information
     String firstName = firstNameField.getText().trim();
     String lastName = lastNameField.getText().trim();
     String studentID = studentIDField.getText().trim();
@@ -98,6 +99,9 @@ public class StudentInfoInputGUI {
         majorSelectionGUI.setVisible(true);
         frame.dispose(); // Close the current frame
     }
+    
+    // Save student information to the database
+    Student.saveStudentInfoToDatabase(studentID, firstName, lastName, "");
 }
 
 

@@ -11,6 +11,10 @@ import java.io.IOException;
 import java.io.FileWriter; 
 import java.io.PrintWriter;
 import java.util.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 /**
  *
@@ -151,6 +155,25 @@ public class Student {
     } else {
         System.out.println("Student with ID '" + studentID + "' not found.");
     }
+    }
+    
+    private static final String DB_URL = "jdbc:derby://localhost:1527/StudentInformation";
+    private static final String USER = "pdc5";
+    private static final String PASSWORD = "pdc5";
+
+    public static void saveStudentInfoToDatabase(String studentID, String firstName, String lastName, String major) {
+        String sql = "INSERT INTO Student (studentID, firstName, lastName, major) VALUES (?, ?, ?, ?)";
+        try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, studentID);
+            pstmt.setString(2, firstName);
+            pstmt.setString(3, lastName);
+            pstmt.setString(4, major);
+            pstmt.executeUpdate();
+            System.out.println("Student information saved to database successfully.");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
     
 }
