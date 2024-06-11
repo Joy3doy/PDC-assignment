@@ -49,7 +49,7 @@ public class StudentInfoInputGUI {
         frame.getContentPane().add(studentIDField);
         studentIDField.setColumns(10);
 
-        JButton btnNext = new JButton("Next");
+        JButton btnNext = new JButton("Confirm Information");
         btnNext.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 confirmInformation();
@@ -111,5 +111,4 @@ private String capitalize(String str) {
     }
     return Character.toUpperCase(str.charAt(0)) + str.substring(1).toLowerCase();
 }
-
 }
