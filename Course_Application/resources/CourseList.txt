@@ -1,0 +1,61 @@
+=========================================================
+
+   Software Development Major:
+
+1. COMP601: Monday 10:00-12:00, Thursday 14:00-16:00
+2. STAT602: Tuesday 10:00-12:00, Friday 14:00-16:00
+3. MATH603: Monday 14:00-16:00, Wednesday 10:00-12:00
+4. COMP604: Tuesday 14:00-16:00, Thursday 10:00-12:00
+5. COMP605: Wednesday 14:00-16:00, Friday 10:00-12:00
+6. COMP606: Monday 16:00-18:00, Thursday 16:00-18:00
+7. COMP607: Tuesday 16:00-18:00, Friday 16:00-18:00
+8. COMP608: Wednesday 16:00-18:00, Thursday 18:00-20:00
+9. COMP609: Monday 18:00-20:00, Friday 18:00-20:00
+10. COMP610: Tuesday 18:00-20:00, Wednesday 18:00-20:00
+
+=========================================================
+
+   Data Analysis Major:
+
+1. COMP621: Monday 10:00-12:00, Wednesday 14:00-16:00
+2. COMP622: Tuesday 10:00-12:00, Thursday 14:00-16:00
+3. COMP623: Monday 14:00-16:00, Friday 10:00-12:00
+4. COMP624: Tuesday 14:00-16:00, Thursday 10:00-12:00
+5. COMP625: Wednesday 10:00-12:00, Friday 14:00-16:00
+6. COMP626: Monday 16:00-18:00, Thursday 16:00-18:00
+7. COMP627: Tuesday 16:00-18:00, Friday 16:00-18:00
+8. COMP628: Wednesday 16:00-18:00, Thursday 18:00-20:00
+9. COMP629: Monday 18:00-20:00, Friday 18:00-20:00
+10. COMP630: Tuesday 18:00-20:00, Wednesday 18:00-20:00
+
+=========================================================
+
+   Digital Service Major:
+
+1. COMP641: Monday 10:00-12:00, Wednesday 14:00-16:00
+2. COMP642: Tuesday 10:00-12:00, Thursday 14:00-16:00
+3. COMP643: Monday 14:00-16:00, Friday 10:00-12:00
+4. COMP644: Tuesday 14:00-16:00, Thursday 10:00-12:00
+5. COMP645: Wednesday 10:00-12:00, Friday 14:00-16:00
+6. COMP646: Monday 16:00-18:00, Thursday 16:00-18:00
+7. COMP647: Tuesday 16:00-18:00, Friday 16:00-18:00
+8. COMP648: Wednesday 16:00-18:00, Thursday 18:00-20:00
+9. COMP649: Monday 18:00-20:00, Friday 18:00-20:00
+10. COMP650: Tuesday 18:00-20:00, Wednesday 18:00-20:00
+
+==============================================
+
+   Network and Cyber Security Major:
+
+1. COMP661: Monday 10:00-12:00, Wednesday 14:00-16:00
+2. COMP662: Tuesday 10:00-12:00, Thursday 14:00-16:00
+3. COMP663: Monday 14:00-16:00, Friday 10:00-12:00
+4. COMP664: Tuesday 14:00-16:00, Thursday 10:00-12:00
+5. COMP665: Wednesday 10:00-12:00, Friday 14:00-16:00
+6. COMP666: Monday 16:00-18:00, Thursday 16:00-18:00
+7. COMP667: Tuesday 16:00-18:00, Friday 16:00-18:00
+8. COMP668: Wednesday 16:00-18:00, Thursday 18:00-20:00
+9. COMP669: Monday 18:00-20:00, Friday 18:00-20:00
+10. COMP670: Tuesday 18:00-20:00, Wednesday 18:00-20:00
+
+=========================================================
