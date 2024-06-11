@@ -58,7 +58,7 @@ public class CourseSelectionGUI {
     frame.getContentPane().add(mainPanel);
 
     // Greeting label
-    JLabel greetingLabel = new JLabel("Hello, " + firstName + " " + lastName + ". \nTo load available classes click load courses, to pick classes click the class you want and click select course. When finished, click submit.");
+    JLabel greetingLabel = new JLabel("Hello, " + firstName + " " + lastName + ". \nTo load available classes click load courses, to pick classes click the classes click select course. When finished, click submit.");
     greetingLabel.setHorizontalAlignment(SwingConstants.CENTER);
     greetingLabel.setFont(new Font("Arial", Font.PLAIN, 14)); 
     mainPanel.add(greetingLabel, BorderLayout.NORTH);
