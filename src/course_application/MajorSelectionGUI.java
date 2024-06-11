@@ -2,16 +2,16 @@ package course_application;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class MajorSelectionGUI {
 
     private JFrame frame;
     private JComboBox<String> majorComboBox;
-
     private String firstName;
     private String lastName;
     private String studentID;
-    //String url = "jdbc:derby://localhost:1527/StudentInformation;create=true";
 
     public MajorSelectionGUI(String firstName, String lastName, String studentID) {
         this.firstName = firstName;
@@ -26,35 +26,48 @@ public class MajorSelectionGUI {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setLayout(new GridLayout(4, 1));
 
-        // Greeting message
         JLabel lblGreeting = new JLabel("Hello, " + firstName + " " + lastName + "!");
         lblGreeting.setHorizontalAlignment(SwingConstants.CENTER);
         frame.getContentPane().add(lblGreeting);
 
-        // Instruction label
         JLabel lblInstruction = new JLabel("Please select your major:");
         lblInstruction.setHorizontalAlignment(SwingConstants.CENTER);
         frame.getContentPane().add(lblInstruction);
 
-        // Major selection combo box
         majorComboBox = new JComboBox<>();
         majorComboBox.setModel(new DefaultComboBoxModel<>(new String[]{
-            "Software Development", "Data Analysis", "Digital Service", "Network and Cyber Security"}));
+                "Software Development", "Data Analysis", "Digital Service", "Network and Cyber Security"}));
         frame.getContentPane().add(majorComboBox);
 
-        // Confirm Major button
-        JButton btnConfirmMajor = new JButton("Confirm Major");
-        frame.getContentPane().add(btnConfirmMajor);
+        JPanel buttonPanel = new JPanel(new GridLayout(1, 2));
 
-        // Event listener for the confirm major button
-        btnConfirmMajor.addActionListener(e -> {
-            String selectedMajor = (String) majorComboBox.getSelectedItem();
-            if (selectedMajor != null) {
-                handleMajorConfirmation(selectedMajor);
-            } else {
-                JOptionPane.showMessageDialog(frame, "Please select a major.");
+        JButton btnBack = new JButton("Back");
+        btnBack.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Go back to StudentInfoInputGUI
+                StudentInfoInputGUI studentInfoInputGUI = new StudentInfoInputGUI();
+                studentInfoInputGUI.setVisible(true);
+                frame.dispose();
             }
         });
+        buttonPanel.add(btnBack);
+
+        JButton btnConfirmMajor = new JButton("Confirm Major");
+        btnConfirmMajor.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String selectedMajor = (String) majorComboBox.getSelectedItem();
+                if (selectedMajor != null) {
+                    handleMajorConfirmation(selectedMajor);
+                } else {
+                    JOptionPane.showMessageDialog(frame, "Please select a major.");
+                }
+            }
+        });
+        buttonPanel.add(btnConfirmMajor);
+
+        frame.getContentPane().add(buttonPanel);
     }
 
     private void handleMajorConfirmation(String selectedMajor) {
