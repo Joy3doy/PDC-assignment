@@ -1,0 +1,44 @@
+Tue Jun 11 23:50:11 NZST 2024 : Apache Derby Network Server - 10.14.2.0 - (1828579) started and ready to accept connections on port 1527
+----------------------------------------------------------------
+Tue Jun 11 23:50:11 NZST 2024:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0190-0722-5d0b-ffffaa43dcb4 
+on database directory C:\Users\jooyj\Downloads\assignment2\P05_22166125_22165610\Course_Applicatiocomplete\Course_Application\StudentInformation with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@30946e09 
+Loaded from file:/C:/Users/jooyj/Downloads/db-derby-10.14.2.0-bin/db-derby-10.14.2.0-bin/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=11.0.22+9-LTS-219
+user.dir=C:\Users\jooyj\Downloads\db-derby-10.14.2.0-bin\db-derby-10.14.2.0-bin
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=C:\Users\jooyj\Downloads\assignment2\P05_22166125_22165610\Course_Applicatiocomplete\Course_Application
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Tue Jun 11 23:50:12 NZST 2024:
+Shutting down instance a816c00e-0190-0722-5d0b-ffffaa43dcb4 on database directory C:\Users\jooyj\Downloads\assignment2\P05_22166125_22165610\Course_Applicatiocomplete\Course_Application\StudentInformation with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@30946e09 
+Tue Jun 11 23:50:12 NZST 2024 Thread[DRDAConnThread_3,5,main] (DATABASE = StudentInformation), (DRDAID = {2}), Database 'StudentInformation' shutdown.
+----------------------------------------------------------------
+Tue Jun 11 23:51:37 NZST 2024:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance 6ede40af-0190-0722-5d0b-ffffaa43dcb4 
+on database directory C:\Users\jooyj\Downloads\assignment2\P05_22166125_22165610\Course_Applicatiocomplete\Course_Application\StudentInformation with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@30946e09 
+Loaded from file:/C:/Users/jooyj/Downloads/db-derby-10.14.2.0-bin/db-derby-10.14.2.0-bin/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=11.0.22+9-LTS-219
+user.dir=C:\Users\jooyj\Downloads\db-derby-10.14.2.0-bin\db-derby-10.14.2.0-bin
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=C:\Users\jooyj\Downloads\assignment2\P05_22166125_22165610\Course_Applicatiocomplete\Course_Application
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Wed Jun 12 00:11:49 NZST 2024:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance 4760c0fe-0190-0722-5d0b-ffffaa43dcb4 
+on database directory C:\Users\jooyj\Downloads\assignment2\P05_22166125_22165610\Course_Applicatiocomplete\Course_Application\sample with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@30946e09 
+Loaded from file:/C:/Users/jooyj/Downloads/db-derby-10.14.2.0-bin/db-derby-10.14.2.0-bin/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=11.0.22+9-LTS-219
+user.dir=C:\Users\jooyj\Downloads\db-derby-10.14.2.0-bin\db-derby-10.14.2.0-bin
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=C:\Users\jooyj\Downloads\assignment2\P05_22166125_22165610\Course_Applicatiocomplete\Course_Application
+Database Class Loader started - derby.database.classpath=''

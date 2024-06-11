@@ -11,6 +11,7 @@ public class MajorSelectionGUI {
     private String firstName;
     private String lastName;
     private String studentID;
+    String url = "jdbc:derby://localhost:1527/StudentInformation;create=true";
 
     public MajorSelectionGUI(String firstName, String lastName, String studentID) {
         this.firstName = firstName;

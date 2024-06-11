@@ -22,6 +22,8 @@ public class CourseSelectionGUI {
     private Set<String> selectedCourses;
     private JTextArea displayArea;
     private static final int MAX_COURSES = 8;
+    String url = "jdbc:derby://localhost:1527/StudentInformation;create=true";
+
 
     private String firstName;
     private String lastName;
@@ -48,7 +50,7 @@ public class CourseSelectionGUI {
 
     private void initialize() {
         frame = new JFrame("Course Selection - " + selectedMajor);
-        frame.setBounds(100, 100, 600, 600);
+        frame.setBounds(100, 100, 800, 800);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setLayout(new GridLayout(9, 1));
 

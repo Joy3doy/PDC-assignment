@@ -11,6 +11,7 @@ public class StudentInfoInputGUI {
     private JTextField firstNameField;
     private JTextField lastNameField;
     private JTextField studentIDField;
+    String url = "jdbc:derby://localhost:1527/StudentInformation;create=true";
 
     public StudentInfoInputGUI() {
         initialize();

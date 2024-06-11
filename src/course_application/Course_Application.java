@@ -19,6 +19,8 @@ public class Course_Application {
 
     public static void main(String[] args) {
         
+        
+        
         System.out.println("========================================================================================================");
         System.out.println("           Welcome to the BCIS Course Registration system, please enter your first name.");
         System.out.println("========================================================================================================");
